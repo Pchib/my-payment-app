@@ -1,6 +1,5 @@
 import { NextResponse,NextRequest } from "next/server";
-import axios from 'axios';
-
+let axios = require('axios')
 
 // POST endpoint to validate user credentials
 export async function POST(req: NextRequest) {

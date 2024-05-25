@@ -1,5 +1,5 @@
 import { NextResponse,NextRequest } from "next/server";
-import axios from 'axios';
+let axios = require('axios')
 let nodemailer = require('nodemailer')
 let QRCode = require('qrcode')
 
