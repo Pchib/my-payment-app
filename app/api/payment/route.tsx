@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const paymentData = {
         email: email,
         amount: 5000, // Amount in kobo
-        callback_url: `http://localhost:3000/payment-success`
+        callback_url: `https://takeoveratthesummit.netlify.app/payment-success`
       };
       const response = await axios.post('https://api.paystack.co/transaction/initialize', paymentData, {
         headers: {
