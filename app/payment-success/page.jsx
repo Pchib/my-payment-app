@@ -1,10 +1,9 @@
-// pages/payment-success.js
 "use client"
 import { useSearchParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
-let axios = require('axios')
+import React, { useEffect, useState, Suspense } from 'react';
+let axios = require('axios');
 
-const PaymentSuccess = () => {
+const PaymentSuccessContent = () => {
   const searchParams = useSearchParams();
   const reference = searchParams.get('reference');
   const [loading, setLoading] = useState(true);
@@ -44,6 +43,14 @@ const PaymentSuccess = () => {
         </div>
       )}
     </div>
+  );
+};
+
+const PaymentSuccess = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <PaymentSuccessContent />
+    </Suspense>
   );
 };
 

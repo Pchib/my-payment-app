@@ -1,8 +1,8 @@
 "use client"
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function ProtectedPage() {
+function ProtectedContent() {
   const searchParams = useSearchParams();
   const email = searchParams.get('email');
   const [valid, setValid] = useState(false);
@@ -25,5 +25,13 @@ export default function ProtectedPage() {
         Your browser does not support the video tag.
       </video>
     </div>
+  );
+}
+
+export default function ProtectedPage() {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <ProtectedContent />
+    </Suspense>
   );
 }
