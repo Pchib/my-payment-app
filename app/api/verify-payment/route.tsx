@@ -45,11 +45,11 @@ export async function GET(req: NextRequest) {
         bcc: 'uicsoft1@gmail.com',
         subject: `Your Qr Code`,
         html: `
-          <p> <p>Thank you for your payment. Scan the QR code to access your content:</p></p>
+          <p> <p>Thank you for your payment. Scan the QR code to access your content:</p></p> <img src="${qrCode}" />
         `, attachments: [
           {
             filename: 'qr_code.png',
-            path: filePath
+            path: qrCode
           }
         ]
       }
