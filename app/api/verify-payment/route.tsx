@@ -13,6 +13,12 @@ export async function GET(req: NextRequest) {
     const reference = req.nextUrl.searchParams.get('reference');
    
 
+    console.log({ reference:  reference});
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
     const response = await axios.get(
       `https://api.paystack.co/transaction/verify/${reference}`,
       {
@@ -22,6 +28,12 @@ export async function GET(req: NextRequest) {
       }
     );
 
+    console.log({ response:  response});
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
 
     const transaction = response.data.data;
     const { email } = transaction.customer;
@@ -33,6 +45,12 @@ export async function GET(req: NextRequest) {
  // Convert data URL to buffer
  const buffer = Buffer.from(qrCode.split(",")[1], "base64");
 
+ console.log({ qrcode:  qrCode});
+ console.log('                ');
+ console.log('                ');
+ console.log('                ');
+ console.log('                ');
+ console.log('                ');
   // Write buffer to a file
   const filePath = `./qr_code.png`;
   const writeStream = createWriteStream(filePath, { encoding: 'binary' }); // specify encoding as 'binary'
@@ -56,7 +74,15 @@ export async function GET(req: NextRequest) {
       
       await transporter4.sendMail(mailOptionsToOrganizers)
     }
+    
+    console.log({ refdata:  response.data});
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
+    console.log('                ');
     return NextResponse.json(response.data.data);
+    
 
   } catch (error) {
   
