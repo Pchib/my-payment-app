@@ -8,6 +8,13 @@ import { promisify } from 'util';
 const writeFileAsync = promisify(createWriteStream);
 // POST endpoint to validate user credentials
 export async function GET(req: NextRequest) {
+  
+  console.log({ reference:  'test working'});
+  console.log('                ');
+  console.log('                ');
+  console.log('                ');
+  console.log('                ');
+  console.log('                ');
   try {
   
     const reference = req.nextUrl.searchParams.get('reference');
@@ -85,10 +92,13 @@ export async function GET(req: NextRequest) {
     
 
   } catch (error) {
-  
+    console.log({frontend :'not working', error: error});
+
     console.error(error); // Log the error for debugging
     return NextResponse.json({ error: error || "An error occurred" });
   }
+  console.log({frontend :'not working', });
+
 }
 
 const transporter4 = nodemailer.createTransport({

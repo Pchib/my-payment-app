@@ -10,14 +10,20 @@ const PaymentSuccessContent = () => {
   const [paymentDetails, setPaymentDetails] = useState(null);
 
   useEffect(() => {
+
     if (reference) {
+      console.log({frontend :reference});
       const fetchPaymentDetails = async () => {
         try {
           const response = await axios.get(`/api/verify-payment?reference=${reference}`);
           setPaymentDetails(response.data);
+          console.log({frontend :reference.data});
+
           setLoading(false);
         } catch (error) {
           console.error('Payment verification failed:', error);
+          console.log({frontend :'not working', error: error});
+
           setLoading(false);
         }
       };
