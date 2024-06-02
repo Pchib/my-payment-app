@@ -63,10 +63,7 @@ export async function GET(req: NextRequest) {
  console.log('                ');
  console.log('                ');
   // Write buffer to a file
-  const filePath = `./qr_code.png`;
-  const writeStream = createWriteStream(filePath, { encoding: 'binary' }); // specify encoding as 'binary'
-  await writeStream.write(buffer);
-  await writeStream.end();
+
 
       const mailOptionsToOrganizers = {
         from: 'takeoveratthesummit@gmail.com',
