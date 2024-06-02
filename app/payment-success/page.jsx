@@ -35,7 +35,7 @@ const PaymentSuccessContent = () => {
 
   return (
     <div>
-      <h1>Payment Successful</h1>
+      <h1>Payment Successful please check your mail for you encoded qe code to access the video </h1>
       {paymentDetails && (
         <div>
           <p>Reference: {paymentDetails.reference}</p>
