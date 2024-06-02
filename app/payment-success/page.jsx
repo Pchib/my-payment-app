@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState, Suspense } from 'react';
-let axios = require('axios');
+import axios from 'axios';
 
 const PaymentSuccessContent = () => {
   const searchParams = useSearchParams();
@@ -10,20 +10,17 @@ const PaymentSuccessContent = () => {
   const [paymentDetails, setPaymentDetails] = useState(null);
 
   useEffect(() => {
-
     if (reference) {
-      console.log({frontend :reference});
+      console.log({ frontend: reference });
       const fetchPaymentDetails = async () => {
         try {
           const response = await axios.get(`/api/verify-payment?reference=${reference}`);
           setPaymentDetails(response.data);
-          console.log({frontend :reference.data});
-
+          console.log({ frontend: response.data });
           setLoading(false);
         } catch (error) {
           console.error('Payment verification failed:', error);
-          console.log({frontend :'not working', error: error});
-
+          console.log({ frontend: 'not working', error: error });
           setLoading(false);
         }
       };
